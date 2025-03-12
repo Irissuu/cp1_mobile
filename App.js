@@ -1,35 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { StyleSheet, Text, View, TextInput, Button, Image } from "react-native";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Insira o valor original de um produto e a porcentagem de aumento, e o sistema deve calcular e exibir o novo valor do produto após o aumento.</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [nome, setNome] = useState("");
+  const [valorOriginal, setValorOriginal] = useState("");
+  const [porcentagem, setPorcentagem] = useState("");
+  const [resultado, setResultado] = useState(null);
 
+  function calcular() {
+    if (nome === "" || valorOriginal === "" || porcentagem === "") {
+      return; 
+    }
 
+    let valor = Number(valorOriginal);
+    let aumento = (valor * Number(porcentagem)) / 100;
+    let novoValor = valor + aumento;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ECBFE8',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imagem: {
-    resizeMode: "center",
-    width: 350
-  },
-  input: {
-    backgroundColor: 'white',
-    width: 300,
-    borderRadius: 7,
-    paddingLeft: 10,
-    borderWidth: 3,
-    borderColor: '#915da1',
-    fontSize: 15
+    setResultado({
+      nome,
+      valorOriginal: valor,
+      porcentagem,
+      aumento,
+      novoValor,
+    });
   }
-});
+
+}
