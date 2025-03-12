@@ -25,4 +25,51 @@ export default function App() {
     });
   }
 
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require("./assets/calculadoraFofa.png")} 
+        style={styles.imagem}
+      />
+
+
+      <Text style={styles.titulo}>Calculadora de Aumento</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Nome do produto"
+        value={nome}
+        onChangeText={setNome}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Valor original"
+        value={valorOriginal}
+        onChangeText={setValorOriginal}
+        keyboardType="numeric"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Porcentagem de aumento"
+        value={porcentagem}
+        onChangeText={setPorcentagem}
+        keyboardType="numeric"
+      />
+
+     
+
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ECBFE8",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+  }
+});
