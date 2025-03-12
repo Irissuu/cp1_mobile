@@ -58,7 +58,17 @@ export default function App() {
         keyboardType="numeric"
       />
 
-     
+      <Button title="Calcular" onPress={calcular} color="#915da1" />
+
+      {resultado && (
+        <View style={styles.resultado}>
+          <Text>Produto: {resultado.nome}</Text>
+          <Text>Valor Original: R$ {resultado.valorOriginal}</Text>
+          <Text>Porcentagem de Aumento: {resultado.porcentagem}%</Text>
+          <Text>Valor do Aumento: R$ {resultado.aumento}</Text>
+          <Text>Novo Valor: R$ {resultado.novoValor}</Text>
+        </View>
+      )}
 
     </View>
   );
@@ -71,5 +81,35 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-  }
+  },
+  imagem: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
+  },
+  titulo: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  input: {
+    backgroundColor: "white",
+    width: 300,
+    borderRadius: 7,
+    paddingLeft: 10,
+    borderWidth: 3,
+    borderColor: "#915da1",
+    fontSize: 15,
+    height: 40,
+    marginBottom: 10,
+  },
+  resultado: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: "#f2c7dc",
+    borderRadius: 7,
+    width: "100%",
+    alignItems: "center",
+  },
 });
